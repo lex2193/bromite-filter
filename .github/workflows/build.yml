@@ -20,13 +20,15 @@ jobs:
         run: wget -i lists.txt -O filters.txt --no-verbose
       - name: Convert lists
         run: ./ruleset_converter --input_format=filter-list --output_format=unindexed-ruleset --input_files=filters.txt --output_file=filters.dat
+      - name: Generate tag name
+        run: echo "TAG_NAME=$(date +%F-%H-%M)" >> $GITHUB_ENV
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
+          tag_name: ${{ env.TAG_NAME }}
           release_name: Filters
           draft: false
           prerelease: false
