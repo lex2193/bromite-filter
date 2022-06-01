@@ -20,11 +20,25 @@ jobs:
         run: wget -i lists.txt -O filters.txt --no-verbose
       - name: Convert lists
         run: ./ruleset_converter --input_format=filter-list --output_format=unindexed-ruleset --input_files=filters.txt --output_file=filters.dat
-      - name: Upload
-        uses: actions/upload-artifact@v3
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: Filters
-          path: filters.dat
+          tag_name: latest
+          release_name: Filters
+          draft: false
+          prerelease: false
+      - name: Upload Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./filters.dat
+          asset_name: filters.dat
+          asset_content_type: application/octet-stream
       - name: Delete older releases
         uses: dev-drprasad/delete-older-releases@v0.1.0
         with:
