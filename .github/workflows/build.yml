@@ -20,12 +20,19 @@ jobs:
         run: wget -i lists.txt -O filters.txt --no-verbose
       - name: Convert lists
         run: ./ruleset_converter --input_format=filter-list --output_format=unindexed-ruleset --input_files=filters.txt --output_file=filters.dat
-      - name: Release filter lists
-        uses: softprops/action-gh-release@v1
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
         with:
-          files: filters.dat
-          name: Filters
           tag_name: latest
+          release_name: Filters
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload Release
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_name: filters.dat
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Delete older releases
