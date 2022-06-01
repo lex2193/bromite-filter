@@ -25,6 +25,7 @@ jobs:
         with:
           files: filters.dat
           name: Filters
+          tag_name: latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Delete older releases
