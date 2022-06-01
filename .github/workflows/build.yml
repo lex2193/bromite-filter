@@ -20,13 +20,17 @@ jobs:
         run: wget -i lists.txt -O filters.txt --no-verbose
       - name: Convert lists
         run: ./ruleset_converter --input_format=filter-list --output_format=unindexed-ruleset --input_files=filters.txt --output_file=filters.dat
-      - name: Generate tag name
-        run: echo "TAG_NAME=$(date +%F-%H-%M)" >> $GITHUB_ENV
       - name: Release filter lists
         uses: softprops/action-gh-release@v1
         with:
           files: filters.dat
           name: Filters
-          tag_name: ${{ env.TAG_NAME }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Delete older releases
+        uses: dev-drprasad/delete-older-releases@v0.1.0
+        with:
+          keep_latest: 2
+          delete_tags: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
