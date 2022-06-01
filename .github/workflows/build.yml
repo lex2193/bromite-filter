@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Download ruleset_converter
-        run: wget https://github.com/bromite/bromite/releases/download/102.0.5005.67/ruleset_converter -P tmp -O output.txt -q
+        run: wget https://github.com/bromite/bromite/releases/download/102.0.5005.67/ruleset_converter -P tmp -O output.txt --no-verbose
       - name: Download lists
-        run: wget -i list.txt -P tmp -q
+        run: wget -i list.txt -P tmp --no-verbose
       
