@@ -32,6 +32,7 @@ jobs:
           release_name: Filters
           draft: false
           prerelease: false
+          body_path: lists.txt
       - name: Upload Release
         uses: actions/upload-release-asset@v1
         env:
