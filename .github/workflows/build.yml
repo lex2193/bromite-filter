@@ -17,5 +17,6 @@ jobs:
       - name: Download ruleset_converter
         run: wget https://github.com/bromite/bromite/releases/download/102.0.5005.67/ruleset_converter -P tmp -O output.txt --no-verbose
       - name: Download lists
-        run: wget -i list.txt -P tmp --no-verbose
-      
+        run: wget -i filters.txt -P tmp --no-verbose
+      - name: Convert lists
+        run: ruleset_converter --input_format=filter-list --output_format=unindexed-ruleset --input_files=tmp/filters.txt --output_file=tmp/filters.dat
