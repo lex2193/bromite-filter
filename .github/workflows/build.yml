@@ -19,4 +19,4 @@ jobs:
       - name: Download lists
         run: wget -i lists.txt -O filters.txt --no-verbose
       - name: Convert lists
-        run: ruleset_converter --input_format=filter-list --output_format=unindexed-ruleset --input_files=filters.txt --output_file=filters.dat
+        run: ./ruleset_converter --input_format=filter-list --output_format=unindexed-ruleset --input_files=filters.txt --output_file=filters.dat
