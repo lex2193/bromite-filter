@@ -1,14 +1,17 @@
-https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt
-https://github.com/uBlockOrigin/uAssets/raw/master/filters/badware.txt
-https://github.com/uBlockOrigin/uAssets/raw/master/filters/privacy.txt
-https://github.com/uBlockOrigin/uAssets/raw/master/filters/quick-fixes.txt
-https://github.com/uBlockOrigin/uAssets/raw/master/filters/resource-abuse.txt
-https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt
+https://cdn.statically.io/gh/uBlockOrigin/uAssetsCDN/main/thirdparties/easylist.txt
+https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssetsCDN@main/thirdparties/easyprivacy.txt
 
-https://easylist.to/easylist/easylist.txt
-https://easylist.to/easylist/easyprivacy.txt
+https://ublockorigin.github.io/uAssetsCDN/thirdparties/easylist-cookies.txt
+https://ublockorigin.pages.dev/filters/annoyances-cookies.txt
+https://filters.adtidy.org/extension/ublock/filters/18.txt
+https://ublockorigin.github.io/uAssetsCDN/filters/annoyances-cookies.txt
 
-https://easylist-downloads.adblockplus.org/liste_fr.txt
+https://filters.adtidy.org/extension/ublock/filters/19.txt
+https://filters.adtidy.org/extension/ublock/filters/20.txt
+https://filters.adtidy.org/extension/ublock/filters/21.txt
+https://filters.adtidy.org/extension/ublock/filters/22.txt
+https://ublockorigin.pages.dev/filters/annoyances.min.txt
 
-https://www.i-dont-care-about-cookies.eu/abp/
 https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt
+
+https://filters.adtidy.org/extension/ublock/filters/16.txt
